@@ -10,18 +10,18 @@ Naver 인공지능 API를 활용한 발표 솔루션 웹 서비스
 
  **유미선** Back-end developer
 
-* Github: [@chayeoi](https://github.com/chayeoi)
+* Github: [@](https://github.com/)
 
  **정성원** Front-end developer
 
-* Github: [@aereeeee](https://github.com/aereeeee)
+* Github: [@](https://github.com/)
 
- **안샛별** Front-end developer
+:elephant: **안샛별** Front-end developer
 
-* Github: [@YuChocopie](https://github.com/YuChocopie)
+* Github: [@sbyeol3](https://github.com/sbyeol3)
 
  **박산희** Back-end developer
 
-* Github: [@wplong11](https://github.com/wplong11)
+* Github: [](https://github.com/)
    
 ## License
