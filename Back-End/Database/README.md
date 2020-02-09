@@ -2,7 +2,7 @@
 
 ## 0. Schema
 
-<img src="../images/database_schema.png" alt="database_schema" style="zoom:35%;" />
+<img src="../../images/database_schema.png" alt="database_schema" style="zoom:35%;" />
 
 
 
