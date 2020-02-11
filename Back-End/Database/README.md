@@ -13,19 +13,22 @@
 create user NAVER identified by 1234
 default TABLESPACE mc;
 -- 권한 부여
-grant connect,resource,dba to MULTI;
+grant connect,resource,dba to NAVER;
 
-DROP TABLE VIDEO_REPORT
+
+DROP TABLE VIDEO_REPORT;
 DROP TABLE SCRIPT;
-DROP TABLE USERS;
 
+DROP TABLE LINK;
+DROP TABLE USERS;
+DROP TABLE LECTURE;
 
 CREATE TABLE USERS (
 	USER_ID VARCHAR2(50) PRIMARY KEY,
 	PASSWORD VARCHAR2(50),
 	NAME VARCHAR2(100),
 	REGDATE DATE,
-	ROLE VARCHAR2(10)
+    ROLE VARCHAR2(10) CHECK ( ROLE IN ('user', 'admin'))
 );
 INSERT INTO USERS VALUES('admin','1234','관리자',sysdate,'admin');
 INSERT INTO USERS VALUES('test','1234','유미선',sysdate,'user');
@@ -36,7 +39,7 @@ CREATE TABLE SCRIPT (
 	TITLE VARCHAR2 (1000),
 	CONTENT VARCHAR2 (1000),
 	SCRIPT VARCHAR2 (1000),
-	TIME NUMBER(20),
+	PTTIME NUMBER(20),
 	VOICE_PATH VARCHAR2(1000),
 	REGDATE DATE
 );
@@ -44,6 +47,10 @@ INSERT INTO SCRIPT VALUES(0,'admin','관리자 전용','관리자 전용 관리�
 'This is for admin',0,'http://',sysdate);
 INSERT INTO SCRIPT VALUES(1,'test','20190301 교양발표','안녕하세요 저는 테스트입니다.',
 'Hi, my name is test',1000,'http://',sysdate);
+
+insert into script
+		values( (SELECT nvl(MAX(script_id),0)+1 FROM script), 'test', '20190304 호주 AI 세미나 발표', 
+        '인공지능에 대하여 발표하겠습니다.','I am gonna talk about AI.', 3000, 'vol2', sysdate);
 
 CREATE TABLE VIDEO_REPORT(
 	REPORT_ID NUMBER PRIMARY KEY,
@@ -68,6 +75,9 @@ CREATE TABLE LINK(
 	LECTURE_SEQ NUMBER REFERENCES LECTURE (LECTURE_SEQ)
 );
 INSERT INTO LINK VALUES(1, 'test', 1);
+
+-- sequence
+
 
 ```
 
