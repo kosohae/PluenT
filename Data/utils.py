@@ -1,6 +1,8 @@
 """
 utils for mnt service 
+__auther__ = 'drumyseong'
 """
+
 import os
 import re
 import json
@@ -8,12 +10,19 @@ import requests
 from bs4 import BeautifulSoup
 
 # checker 
-def checkStopword(s):
-    stopword = ["\"","$","&","'","(",")","*","+",",","-",";","<","=",">","@","\\","^","_","`","|","~","·","—","——","‘","’","“","”","…","、","。","〈","〉","《","》"]
-    return s in stopword
-
 def checkLen(text):
     return (len(text) < 500)
+
+def findLastIdx(text):
+    pre_i = 0
+    while True:
+        idx = text.find("."or"!"or"?")
+        if idx >= 0 and idx+pre_i <= 500:
+            pre_i += idx
+            text = text[idx+1:]
+        else:
+            break
+    return pre_i+1
 
 def checkSpellKo(text):
     checkedText = []
@@ -22,10 +31,14 @@ def checkSpellKo(text):
         if checkLen(text):
             return getCorrectedKo(text)
         else:
-            pass
+            pre_i = 0
+            while(idx == 0):
+                idx = findLastIdx(text)
+                getCorrectedKo(text[:idx])
+                text = text[idx:]
     #parameter type is list
     else:
-        #rec
+        #recrusive call
         for t in text:
             checked = checkSpellKo(t)
             checkedText.append(checked)
@@ -49,4 +62,7 @@ def getCorrectedKo(q):
     response_dict = json.loads(response)
     checked = response_dict['message']['result']['html']
     checked = BeautifulSoup(checked, "html.parser").text
+
     return checked
+
+
