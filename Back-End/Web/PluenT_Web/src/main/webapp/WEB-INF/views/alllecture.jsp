@@ -46,6 +46,7 @@
 				<td>  ${vo.lec_title}</td>
 				<td> ${vo.teacher} </td>
 				<td> ${vo.price}원 </td>
+				<td> ${vo.place} </td>
 				</tr>
 			</c:forEach>
 		</table>

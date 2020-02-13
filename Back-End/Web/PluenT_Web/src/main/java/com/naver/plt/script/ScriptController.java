@@ -52,8 +52,19 @@ public class ScriptController {
 			) 
 	{
 		ModelAndView mav = new ModelAndView();
+		ScriptVO trans = new ScriptVO();
+		if(button.equals("음성파일 불러오기")) {
+			trans.setTitle(vo.getTitle());
+			trans.setContent(vo.getContent());
+			trans.setPttime(vo.getPttime());
+			trans.setVoice_path(vo.getVoice_path());
+			trans.setScript(vo.getScript());
+			mav.addObject("trans",trans);
+			mav.setViewName("newscript");
+			return mav;
+		}
 		if(button.equals("번역")) {
-			ScriptVO trans = new ScriptVO();
+			
 			
 			trans.setTitle(vo.getTitle());
 			if(vo.getContent().equals("")) {
@@ -75,7 +86,7 @@ public class ScriptController {
 		else{
 			us = (UserVO)session.getAttribute("user");
 			//System.out.println(us.getUser_id());
-			System.out.println("voice: "+vo.getVoice_path());
+			//System.out.println("voice: "+vo.getVoice_path());
 			vo.setUser_id( us.getUser_id() );
 			if(vo.getTitle().equals("")) {
 				// 만약 제목이 입력이 안되어있었다면,

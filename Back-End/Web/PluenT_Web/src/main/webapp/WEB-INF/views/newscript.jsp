@@ -77,8 +77,13 @@ $(function(){
 			<input type="button" id="copy"  value="복사"> &nbsp; 
 			<!-- 인식된 오디오 소스 받기 --><br>
 			<%-- ${contextPath}/plt/resources/voice/${script.voice } --%>
+			<%-- ${contextPath}/plt/resources/voice/${trans.voice_path} --%>
+			<!-- file:/Users/mcnl/eclipse/java-2019-03/Eclipse.app/Contents/MacOS/1581597094312.mp3 -->
 			<audio id = "script_audio"
 			src="${contextPath}/plt/resources/voice/${trans.voice_path}" controls > </audio>  <br>
+			
+			<%-- <h1>${contextPath}/plt/resources/voice/${trans.voice_path}</h1> --%>
+			
 			<input type="text" style="display:none" value="${trans.voice_path }" name="voice_path"> 
 		
 		발표 예상 시간 : <input type="number" id="pttime" name="pttime" readonly value="0"/>(s) <br> 
@@ -86,6 +91,7 @@ $(function(){
 			<!-- 버튼 설정 -->
 			<input type="button" id="time_cal"  name="button" value="시간계산"> &nbsp;&nbsp;
 			<input type="submit" id="translation"  name="button" value="번역"> &nbsp;&nbsp;
+			<input type="submit" id="voi"  name="button" value="음성파일 불러오기"> &nbsp;&nbsp;
 			<input type="submit" name="button" value="저장" />
 		</form>
 	</section><br>	

@@ -97,3 +97,12 @@
 
    ![lib추가](../images/lib추가.png)
 
+4. 업로드 파일, 서버와 바로 동기화 하는 방법 : apache tomcat 실행했을때의 , server 파일에 sever.xml에 설정을 추가하면 된다.
+
+```xml
+
+      <Context docBase="PluenT_Web" path="/plt" reloadable="true" source="org.eclipse.jst.jee.server:PluenT_Web"/>
+      <Context path="/plt/resources/voice" reloadable="true" docBase="/Users/mcnl/PluenT/Back-End/Web/.metadata/.plugins/org.eclipse.wst.server.core/" />
+
+```
+

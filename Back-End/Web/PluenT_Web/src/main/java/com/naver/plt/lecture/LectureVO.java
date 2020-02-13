@@ -6,7 +6,14 @@ public class LectureVO {
 	private String lec_title;
 	private String teacher;
 	private int price;
+	private String place;
 	
+	public String getPlace() {
+		return place;
+	}
+	public void setPlace(String place) {
+		this.place = place;
+	}
 	public int getLecture_seq() {
 		return lecture_seq;
 	}

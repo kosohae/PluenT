@@ -7,16 +7,48 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLEncoder;
 import java.util.Date;
+import java.util.Enumeration;
+import java.util.Properties;
 
 @Service
 public class CssApi {
 	private static final String clientId = "k4axr5p2si";//애플리케이션 클라이언트 아이디값";
     private static final String clientSecret = "bzHQd76nYQLSpmh13vtrgriCUEiGC8YrUvThXNAf";//애플리케이션 클라이언트 시크릿값";
     // 경로 이름 (이거는 properties 처리 해주길)
-    private static final String path = "~/PluenT/Back-End/Web/PluenT_Web/src/main/webapp/resources/voice/";
+    //private static final String path = "~/mcnl/PluenT/Back-End/Web/PluenT_Web/src/main/webapp/resources/voice/";
     // container : /Users/mcnl/eclipse/java-2019-03/Eclipse.app/Contents/MacOS/
     // /Users/pavankumar/Desktop/Testing/Java.txt
     public String css(String text_ori, String target_lang, String gender) {
+//        Properties props = System.getProperties();
+//        for(Enumeration en = props.propertyNames(); en.hasMoreElements();) {
+//            String key = (String)en.nextElement();
+//            String value = props.getProperty(key);
+//            System.out.println(key + "=" + value);
+//        }
+
+    	//String filename = "newFile.txt";
+//		String workingDirectory = 
+//				System.getProperty("user.home")+File.separator+"PluenT"+File.separator+"Back-End"
+//		+File.separator+"Web"+File.separator+"PluenT_Web"+File.separator+"src"+File.separator+
+//		"main"+File.separator+"webapp"+File.separator+"resources"+File.separator+"voice"+File.separator;
+		
+    	// Server 에 바로 올리는 경우
+    	String workingDirectory = 
+				System.getProperty("user.home")+File.separator+"PluenT"+File.separator+"Back-End"
+		+File.separator+"Web"+File.separator+".metadata"+File.separator+".plugins"+File.separator+
+		"org.eclipse.wst.server.core"+File.separator;
+		
+		///Users/mcnl/PluenT/Back-End/Web/.metadata/.plugins/org.eclipse.wst.server.core/
+			
+		//****************//
+			
+		//String absoluteFilePath = "";
+			
+		//absoluteFilePath = workingDirectory + System.getProperty("file.separator") + filename;
+		//absoluteFilePath = workingDirectory + File.separator + filename;
+
+		//System.out.println("Final filepath : " + absoluteFilePath);
+			
     
     	try {
         String text = URLEncoder.encode(text_ori, "UTF-8"); // 13자
@@ -44,20 +76,21 @@ public class CssApi {
             byte[] bytes = new byte[1024];
             // 랜덤한 이름으로 mp3 파일 생성
             String tempname = Long.valueOf(new Date().getTime()).toString();
-           
-        
             
-            System.out.println(path+tempname);
-            File f = new File(path+tempname+".mp3");
-            f.createNewFile();
+            // file creation
+            System.out.println(workingDirectory+tempname);
+            File f = new File(workingDirectory+tempname+".mp3");
+            //System.out.println(f.toURI());
             System.out.println("경로를 포함한 파일이름 - " + f.getAbsolutePath());
+            f.createNewFile();
+            
 
             OutputStream outputStream = new FileOutputStream(f);
             while ((read =is.read(bytes)) != -1) {
                 outputStream.write(bytes, 0, read);
             }
             is.close();
-            return f.getPath();
+            return tempname+".mp3";
         } else {  
         	// 오류 발생
             br = new BufferedReader(new InputStreamReader(con.getErrorStream()));
@@ -71,7 +104,7 @@ public class CssApi {
             return response.substring(response.indexOf("message")+10,response.length()-3);
         }
     } catch (Exception e) {
-        System.out.println(e);
+        e.printStackTrace();
         return e.toString();
     }
     }
