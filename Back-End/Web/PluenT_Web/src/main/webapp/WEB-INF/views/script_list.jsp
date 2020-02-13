@@ -44,7 +44,7 @@
 				<tr> 
 				<td><a href="/plt/onescript?script_id=${vo.script_id }">${vo.script_id }</a></td>
 				<td>  ${vo.title}</td>
-				<td> ${vo.pttime} </td>
+				<td> ${vo.pttime /1000} </td>
 				<td> ${vo.regdate} </td>
 				</tr>
 			</c:forEach>

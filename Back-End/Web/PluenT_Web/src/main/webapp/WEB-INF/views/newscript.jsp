@@ -12,11 +12,14 @@
 <script type="text/javascript" src='http://code.jquery.com/jquery-1.10.1.min.js'></script>
 <script type="text/javascript">
 $(function(){
-	$("#translation").click(function(){
-		var t = $("#content").val();
-		$("#script").text(t);
+	$("#time_cal").click(function(){
+		var vid = document.getElementById("script_audio");
+		var pt = document.getElementById("pttime");
+		pt.value=Math.round(vid.duration);
 	});
 });
+
+
 </script>
 </head>
 
@@ -36,42 +39,56 @@ $(function(){
 			<li><a class="menuLink" href="scriptlist">나의 발표관리</a></li>
 		</ul>
 	</nav>
-
-<form id="userScript" action="newscript" method="post">
-		제목:<input type="text" name="title" value="${trans.title}" /> <br><br>
-		<section>
-			<!-- 인식된 번역본 받기 -->
-	번역될 언어:
-		<select name=ori_lang size=1>
-        <option value=1>한국어</option>
-        <option value=2>영어</option>
-        <option value=3>일본어</option>
-        <option value=4 selected>베트남어</option>
-    </select><br>
-		내용넣기:<textarea rows="20" cols="30" name="content" id="content" >${trans.content }</textarea>
-		<br><br>번역할 언어:
-		<section>
+	
+	<section>
+		<form id="userScript" action="newscript" method="post">
+			제목:<input type="text" name="title" value="${trans.title}" /> <br><br>
+			
+				<!-- 인식된 번역본 받기 -->
+			번역될 언어:
+			<select name=origin_lang size=1>
+		        <option value="ko" selected>한국어</option>
+		        <option value="en">영어</option>
+		        <option value="ja">일본어</option>
+		        <option value="zh-CN">중국어(간체)</option>
+		        <option value="zh-TW">중국어(번체)</option>
+		        <option value="es" >스페인어</option>
+	    	</select><br>
+			내용넣기:<textarea rows="20" cols="30" name="content" id="content" required>${trans.content }</textarea>
+			<br><br>번역할 언어:
 			<select name=target_lang size=1>
-	        <option value=1>한국어</option>
-	        <option value=2>영어</option>
-	        <option value=3>일본어</option>
-	        <option value=4 selected>베트남어</option>
-    	</select>
-<br>
-		번역본:
-		<textarea rows="20" cols="30" name="script" id="script" readonly="readonly">${trans.script }</textarea>
-		<!-- 번역본 받아서 문단 나누기 -->
-
-		<input type="button" id="copy"  value="복사"> &nbsp; 
-		<!-- 인식된 오디오 소스 받기 --><br>
-		<audio src=""  controls > </audio>  <br>
+		        <option value="ko">한국어</option>
+		        <option value="en" selected>영어</option>
+		        <option value="ja">일본어</option>
+		        <option value="zh-CN">중국어(간체)</option>
+		        <option value="zh-TW">중국어(번체)</option>
+		        <option value="es" >스페인어</option>
+	    	</select>
+			<br>음성 목소리 성별:
+			<select name=gender size=1>
+		        <option value="f"  selected >여자</option>
+		        <option value="m">남자</option>
+	    	</select>
+	    		<br>
+			번역본:
+			<textarea rows="20" cols="30" name="script" id="script" readonly="readonly">${trans.script }</textarea>
+			<!-- 번역본 받아서 문단 나누기 -->
+	
+			<input type="button" id="copy"  value="복사"> &nbsp; 
+			<!-- 인식된 오디오 소스 받기 --><br>
+			<%-- ${contextPath}/plt/resources/voice/${script.voice } --%>
+			<audio id = "script_audio"
+			src="${contextPath}/plt/resources/voice/${trans.voice_path}" controls > </audio>  <br>
+			<input type="text" style="display:none" value="${trans.voice_path }" name="voice_path"> 
 		
-		발표 예상 시간 : <input type="text" id="pttime" name="pttime" value=5000 readonly/>(ms) <br> 
-		<input type="button" id="translation"  value="번역"> &nbsp;&nbsp;
-		
-		<input type="submit" value="저장" />
-	</form>
-	</section><br>
+		발표 예상 시간 : <input type="number" id="pttime" name="pttime" readonly value="0"/>(s) <br> 
+			
+			<!-- 버튼 설정 -->
+			<input type="button" id="time_cal"  name="button" value="시간계산"> &nbsp;&nbsp;
+			<input type="submit" id="translation"  name="button" value="번역"> &nbsp;&nbsp;
+			<input type="submit" name="button" value="저장" />
+		</form>
+	</section><br>	
 
 	<footer>
 	회사소개

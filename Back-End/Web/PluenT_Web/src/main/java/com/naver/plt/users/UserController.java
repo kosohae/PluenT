@@ -18,6 +18,11 @@ public class UserController {
 	@Autowired
 	UserDAO dao;
 	
+	@RequestMapping("/main")
+	public String homePage() {
+		return "main";
+	}
+	
 	@RequestMapping("/users")
 	public ModelAndView getAllUsers() {
 		List<UserVO> list = dao.getAllUser();

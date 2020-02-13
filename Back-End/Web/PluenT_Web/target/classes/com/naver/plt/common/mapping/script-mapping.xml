@@ -16,7 +16,7 @@
 	<insert id="insertScript" parameterType="script">
 		insert into script
 		values( (SELECT nvl(MAX(script_id),0)+1 FROM script), #{user_id},
-		#{title}, #{content}, #{script}, #{pttime}, 'fileName', sysdate)
+		#{title}, #{content}, #{script}, #{pttime}, #{voice_path}, sysdate)
 	</insert>
 <!-- <![CDATA[XML태그 아니고 이거 문자열이야]]> -->
 </mapper>

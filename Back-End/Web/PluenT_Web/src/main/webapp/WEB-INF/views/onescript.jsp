@@ -39,7 +39,8 @@
 
 		<article>
 			<h2>번역 대본</h2>
-			${script.script }
+			<p>${script.script }</p>
+			<audio src="${contextPath}/plt/resources/voice/${script.voice_path }"  controls > </audio> 
 		</article>
 		<br>발표예상시간: ${script.pttime / 1000 } (s)
 	</section>
