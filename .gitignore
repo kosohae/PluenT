@@ -151,3 +151,8 @@ $RECYCLE.BIN/
 *.lnk
 
 # End of https://www.gitignore.io/api/java,macos,windows,eclipse
+
+# bin file
+*.pt
+*.pth
+*.bin
