@@ -156,3 +156,5 @@ $RECYCLE.BIN/
 *.pt
 *.pth
 *.bin
+*.npy
+*.jpg
