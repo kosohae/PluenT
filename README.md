@@ -1,5 +1,5 @@
 # P l u e n T ( Fluent + P.T )
-Naver 인공지능 API를 활용한 발표 솔루션 웹 서비스<br/>
+Naver 인공지능 API 및 딥러닝 기술을 활용한 발표 솔루션 웹 서비스<br/>
 2020 네이버 AI Burning Day 본선 진출
 
 
@@ -25,7 +25,7 @@ Naver 인공지능 API를 활용한 발표 솔루션 웹 서비스<br/>
 
 * Github: [@sbyeol3](https://github.com/sbyeol3)
 
-🦙 **박산희** Back-end developer
+🦙 **박산희** ML engineering, Back-end developer
 
 * Github: [@kosohae](https://github.com/kosohae)
    
