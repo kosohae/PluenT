@@ -42,7 +42,7 @@
 			<p>${script.script }</p>
 			<audio src="${contextPath}/plt/resources/voice/${script.voice_path }"  controls > </audio> 
 		</article>
-		<br>발표예상시간: ${script.pttime / 1000 } (s)
+		<br>발표예상시간: ${script.pttime  } (s)
 	</section>
 	
 

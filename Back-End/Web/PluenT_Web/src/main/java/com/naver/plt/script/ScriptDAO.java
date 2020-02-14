@@ -22,4 +22,12 @@ public class ScriptDAO {
 	public ScriptVO getIdScript(String script_id) {
 		return session.selectOne("oneScript",script_id);
 	}
+	
+	public int getMaxSetId() {
+		return session.selectOne("maxSetId");
+	}
+	
+	public List<Integer> getAllSetId() {
+		return session.selectList("setId");
+	}
 }

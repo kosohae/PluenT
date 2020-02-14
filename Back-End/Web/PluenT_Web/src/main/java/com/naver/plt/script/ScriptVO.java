@@ -12,9 +12,22 @@ public class ScriptVO {
 	private int pttime;
 	private String voice_path;
 	private Date regdate;
+	private int set_id;
 	
+	public int getSet_id() {
+		return set_id;
+	}
+	public void setSet_id(int set_id) {
+		this.set_id = set_id;
+	}
 	public String getUser_id() {
 		return user_id;
+	}
+	@Override
+	public String toString() {
+		return "ScriptVO [user_id=" + user_id + ", script_id=" + script_id + ", title=" + title + ", content=" + content
+				+ ", script=" + script + ", pttime=" + pttime + ", voice_path=" + voice_path + ", regdate=" + regdate
+				+ "]";
 	}
 	public void setUser_id(String user_id) {
 		this.user_id = user_id;

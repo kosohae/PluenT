@@ -60,7 +60,7 @@
          APR (HTTP/AJP) Connector: /docs/apr.html
          Define a non-SSL/TLS HTTP/1.1 Connector on port 8080
     -->
-    <Connector connectionTimeout="20000" port="9080" protocol="HTTP/1.1" redirectPort="8443"/>
+    <Connector connectionTimeout="20000" port="9090" protocol="HTTP/1.1" redirectPort="8443"/>
     <!-- A "Connector" using the shared thread pool-->
     <!--
     <Connector executor="tomcatThreadPool"
@@ -150,8 +150,8 @@
         <Valve className="org.apache.catalina.valves.AccessLogValve" directory="logs" pattern="%h %l %u %t &quot;%r&quot; %s %b" prefix="localhost_access_log" suffix=".txt"/>
 
       <Context docBase="PluenT_Web" path="/plt" reloadable="true" source="org.eclipse.jst.jee.server:PluenT_Web"/>
-      <Context path="/plt/resources/voice" reloadable="true" docBase="/Users/mcnl/PluenT/Back-End/Web/.metadata/.plugins/org.eclipse.wst.server.core/" />
-
+        <Context path="/plt/resources/voice" reloadable="true" docBase="/Users/mcnl/PluenT/Back-End/Web/.metadata/.plugins/org.eclipse.wst.server.core/" />
+      
       </Host>
     </Engine>
   </Service>

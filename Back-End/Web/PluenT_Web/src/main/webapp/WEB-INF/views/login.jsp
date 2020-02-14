@@ -8,70 +8,50 @@
 <head>
 <meta charset="UTF-8">
 <title>페이지 이름</title>
-
+<link rel="stylesheet" href="<%=request.getContextPath() %>/resources/login.css">
 </head>
+<body cellpadding="0" cellspacing="0" marginleft="0" margintop="0"
+	width="100%" height="100%" align="center">
 
-<body>
-	
-	<header>
-		<img id="logo" alt="" 
-		src="https://mblogthumb-phinf.pstatic.net/20160622_73/hhtthh82_1466581509899OrBaG_PNG/%B3%D7%C0%CC%B9%F6-%B7%CE%B0%ED-%B0%ED%C8%AD%C1%FA.png?type=w800"
-		width="5%">
-		<a href="logout">Logout</a>
-		<a href="/">메인</a>
+	<div class="card align-middle"
+		style="width: 21rem; height: 18rem; border-radius: 20px;">
+		<div class="card-title" style="margin-top: 30px;">
+			<h2 class="card-title text-center" style="color: #113366;">Hello
+				PluenT!</h2>
+		</div>
+		<div class="card-body">
+			<form class="form-signin" method="POST"
+				action="login">
+				<label for="inputEmail" class="sr-only"></label> 
+				<input type="text"
+					id="uid" name="user_id" class="form-control" placeholder="Your ID" required
+					autofocus><BR> 
+					<label for="inputPassword"
+					class="sr-only"></label> 
+					<input type="password" name="password" id="upw"
+					class="form-control" placeholder="Password" required><br>
+				<div class="checkbox"></div>
+				<input id="btn-Yes" class="btn btn-lg btn-primary btn-block"
+					type="submit" value="Login">
+			</form>
 
-	</header>
+		</div>
+	</div>
 
-	<nav > 		
-		<ul  id="topMenu">
-			<li><a class="menuLink" href="newscript">스크립트번역</a></li>
-			<li><a class="menuLink" href="#">발표연습</a></li>
-			<li><a class="menuLink" href="alllecture">강의보기</a></li>
-			<li><a class="menuLink" href="scriptlist">나의 발표관리</a></li>
-		</ul>
-	</nav>
-
-	<section>
-	
-		<form action="login" method="post">
-			<table id="loginform">
-				<tr>
-					<td>
-						ID : 
-					</td>
-					<td>
-						<input type="text" id="user_id" name="user_id" required/>
-					</td>
-				</tr>
-				
-				<tr>
-					<td>
-						PW : 
-					</td>
-					<td>
-						<input type="password" id="password" name="password"  required/>
-					</td>
-				</tr>
-				
-				<tr>
-					<td rowspan="2">
-						<input type="submit" value="로그인" />
-					</td>
-				</tr>
-
-			</table>
-		
-		</form>
-
-	</section>
-	
-	<section>
-
-	</section>
-
-	<footer>
-	회사소개
-	</footer>
+	<!-- Optional JavaScript -->
+	<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+		integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+		crossorigin="anonymous"></script>
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+		integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+		crossorigin="anonymous"></script>
+	<script
+		src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+		integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+		crossorigin="anonymous"></script>
 </body>
+
 
 </html>
